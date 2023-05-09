@@ -24,6 +24,11 @@
     background-color: map-get($colors, 'crystal-ball');
 }
 
+.l-crystal-ball-button {
+    border: none;
+    background: none;
+}
+
 .l-modal-button-container {
     display: flex;
     gap: 16px;

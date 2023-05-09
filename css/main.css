@@ -36,6 +36,11 @@ html, body {
   background-color: #60C9F7;
 }
 
+.l-crystal-ball-button {
+  border: none;
+  background: none;
+}
+
 .l-modal-button-container {
   display: flex;
   gap: 16px;
@@ -68,6 +73,7 @@ html, body {
   background-color: rgba(0, 0, 0, 0.7607843137);
   width: 100vw;
   height: 100vh;
+  transition: 0.5s;
 }
 
 .c-modal {
@@ -84,7 +90,7 @@ html, body {
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: aliceblue;
-  transition: 0.5s;
+  transition: 0.2s;
 }
 .c-modal .title {
   font-weight: 500;

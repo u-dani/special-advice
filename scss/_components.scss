@@ -28,6 +28,7 @@
     background-color: #000000c2;
     width: 100vw;
     height: 100vh;
+    transition: .5s;
 }
 
 .c-modal {
@@ -44,7 +45,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: aliceblue;
-    transition: .5s;
+    transition: .2s;
 
     .title {
         font-weight: 500;
