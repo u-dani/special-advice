@@ -12,24 +12,34 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     
     <div class="l-page">
-        <header class="l-header">
+        <hgroup class="l-main-hgroup">
             <h1 class="c-title">Precisa de um conselho?</h1>
             <h2 class="c-subtitle">Então veio ao lugar certo!</h2>
-        </header>
+        </hgroup>
 
-        <p>Clique na bola de cristal e ela te dará um conselho especial.</p>
+        <section>
+            <p class="c-description">Clique na bola de cristal e ela te dará um conselho especial.</p>
 
-        <img class="c-crystal-ball-image js-crystal-ball-image" src="images/crystal-ball-image.jpg" alt="Bola de Cristal" />
+            <div class="l-crystal-ball-container">
+                <img class="c-crystal-ball-image js-crystal-ball-image" src="images/crystal-ball-image.jpg" alt="Bola de Cristal" />
+            </div>
+        </section>
 
-        <section class="l-advice-container js-advice-container">
-            <h2 class="c-subtitle js-title"></h2>
-            <p class="advice js-advice"></p>
+        <div class="c-modal-backdrop"></div>
+
+        <section class="c-modal c-modal--hide js-advice-container">
+            <h2 class="c-subtitle title js-title">✨ Seu conselho ✨</h2>
+            <p class="c-description js-advice">conselho aqui</p>
+
+            <div class="l-modal-button-container">
+                <button class="c-button">Novo Conselho</button>
+                <button class="c-button c-button--danger">Fechar</button>
+            </div>
         </section>
     </div>
 

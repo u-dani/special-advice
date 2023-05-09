@@ -1,58 +1,116 @@
-@font-face {
-  font-family: "Baby Bunny";
-  src: url("../fonts/Baby Bunny.ttf");
-}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  color: #222;
 }
 
 html, body {
-  background-color: #60C9F7;
+  font-size: 16px;
+  background-color: aliceblue;
 }
 
 .l-page {
-  padding: 80px 0px;
+  max-width: 720px;
+  margin: 0 auto;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 90%;
-  max-width: 600px;
-  margin: 0 auto;
-  font-family: sans-serif;
-  text-align: center;
-  gap: 30px;
-  font-family: "Montserrat";
-}
-.l-page p {
-  font-size: 1.2rem;
+  gap: 48px;
+  padding: 48px;
 }
 
-.c-crystal-ball-image {
-  width: 150px;
-  cursor: pointer;
+.l-main-hgroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.l-advice-container {
-  max-width: 600px;
-  position: relative;
+.l-crystal-ball-container {
+  margin-top: 16px;
+  padding: 8px;
+  background-color: #60C9F7;
+}
+
+.l-modal-button-container {
+  display: flex;
+  gap: 16px;
 }
 
 .c-title {
-  font-size: 3.8rem;
-  font-family: "Baby Bunny";
-  font-weight: normal;
-  letter-spacing: 1px;
-  line-height: 3.8rem;
-  color: rgb(31, 25, 25);
+  font-size: 2rem;
+  font-weight: 500;
 }
 
 .c-subtitle {
-  font-family: "Montserrat";
+  font-size: 24px;
   font-weight: 300;
-  line-height: 5rem;
+}
+
+.c-description {
+  font-size: 20px;
+}
+
+.c-crystal-ball-image {
+  width: 104px;
+  cursor: pointer;
+}
+
+.c-modal-backdrop {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7607843137);
+  width: 100vw;
+  height: 100vh;
+}
+
+.c-modal {
+  max-width: 720px;
+  min-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  border-radius: 4px;
+  padding: 24px 32px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: aliceblue;
+  transition: 0.5s;
+}
+.c-modal .title {
+  font-weight: 500;
+}
+.c-modal--hide {
+  top: -100%;
+}
+
+.c-button {
+  border: 1px solid rgba(51, 51, 51, 0.2);
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #0ca3e5;
+  font-weight: 500;
+  color: aliceblue;
+}
+.c-button:hover {
+  background-color: #0981b5;
+}
+.c-button--danger {
+  background-color: tomato;
+}
+.c-button--danger:hover {
+  background-color: #ff3814;
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,12 +1,7 @@
 
-@font-face {
-    font-family: 'Baby Bunny';
-    src: url('../fonts/Baby\ Bunny.ttf');
-}
-
-$font-families: (
-    'fantasy': 'Baby Bunny',
-    'default': 'Montserrat'
+$colors: (
+    'crystal-ball': #60C9F7,
+    'danger': tomato
 );
 
-$bgcolor: #60C9F7;
+$max-width-page: 720px;
