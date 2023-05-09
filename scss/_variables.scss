@@ -1,0 +1,12 @@
+
+@font-face {
+    font-family: 'Baby Bunny';
+    src: url('../fonts/Baby\ Bunny.ttf');
+}
+
+$font-families: (
+    'fantasy': 'Baby Bunny',
+    'default': 'Montserrat'
+);
+
+$bgcolor: #60C9F7;

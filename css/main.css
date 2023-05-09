@@ -1,0 +1,58 @@
+@font-face {
+  font-family: "Baby Bunny";
+  src: url("../fonts/Baby Bunny.ttf");
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: #60C9F7;
+}
+
+.l-page {
+  padding: 80px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: sans-serif;
+  text-align: center;
+  gap: 30px;
+  font-family: "Montserrat";
+}
+.l-page p {
+  font-size: 1.2rem;
+}
+
+.c-crystal-ball-image {
+  width: 150px;
+  cursor: pointer;
+}
+
+.l-advice-container {
+  max-width: 600px;
+  position: relative;
+}
+
+.c-title {
+  font-size: 3.8rem;
+  font-family: "Baby Bunny";
+  font-weight: normal;
+  letter-spacing: 1px;
+  line-height: 3.8rem;
+  color: rgb(31, 25, 25);
+}
+
+.c-subtitle {
+  font-family: "Montserrat";
+  font-weight: 300;
+  line-height: 5rem;
+}
+
+/*# sourceMappingURL=main.css.map */
