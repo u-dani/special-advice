@@ -79,6 +79,7 @@ html, body {
 .c-modal {
   max-width: 720px;
   min-width: 480px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
