@@ -1,0 +1,26 @@
+
+.transition-animation {
+    position: relative;
+    transition: 2.1s;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #00000066;
+        animation: loading 2s ease;
+    }
+}
+
+@keyframes loading {
+    to {
+        left: 0;
+    }
+
+    from {
+        left: 100%;
+    }
+}

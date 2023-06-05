@@ -10,22 +10,43 @@ const modal = document.querySelector('.js-advice-modal');
 const modalBackdrop = document.querySelector<HTMLDivElement>('.js-modal-backdrop');
 const hiddenModalClass = 'c-modal--hide';
 
+const checkboxTranslateAdvice = document.querySelector<HTMLInputElement>('.js-checkbox-translate')
 const newAdviceButton = document.querySelector('.js-new-advice-button');
 const modalCloseButton = document.querySelector('.js-modal-close-button');
 
 
-const showAdvice = async () => {
+const adviceRequestInterval = () => {
+    newAdviceButton?.setAttribute('disabled', '')
+    newAdviceButton?.classList.add('transition-animation')
+    setTimeout(() => {
+        newAdviceButton?.removeAttribute('disabled')
+        newAdviceButton?.classList.remove('transition-animation')
+    }, 2000)
+}
+
+
+const newAdvice = async () => {
     const adviceInEnglish = await requestAdvice();
+    return adviceInEnglish
+}
+
+const showAdvice = async (advice?: string) => {
+
+    if (!advice) {
+        advice = adviceParagraph?.textContent || 'Acabou os conselhos...'
+    }
 
     const adviceInPortuguese = await translateText({
-        text: adviceInEnglish,
+        text: advice,
         srcLang: 'en-US',
         to: 'pt-BR'
     });
 
-    adviceParagraph
-        ? adviceParagraph.textContent = adviceInPortuguese
-        : alert(`Conselho: ${adviceInPortuguese}`);
+    
+    checkboxTranslateAdvice?.checked && adviceInPortuguese
+        ? adviceParagraph!.textContent = adviceInPortuguese
+        : adviceParagraph!.textContent = advice
+
 }
 
 const toggleModal = () => {
@@ -50,10 +71,23 @@ crystalBallButton?.addEventListener('click', async ({ target }) => {
     }
 
     crystalBallButton.setAttribute('disabled', '');
-    await showAdvice();
+    const advice = await newAdvice()
+    showAdvice(advice)
     toggleModal();
+    adviceRequestInterval();
+});
+
+
+checkboxTranslateAdvice?.addEventListener('click', async(e) => { 
+    e.stopPropagation()
+    showAdvice()
 });
 
 modalBackdrop?.addEventListener('click', toggleModal);
-newAdviceButton?.addEventListener('click', showAdvice)
 modalCloseButton?.addEventListener('click', toggleModal)
+
+newAdviceButton?.addEventListener('click', async() => {
+    const advice = await newAdvice()
+    showAdvice(advice)
+    adviceRequestInterval()
+})

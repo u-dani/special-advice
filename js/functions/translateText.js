@@ -11,5 +11,8 @@ export const translateText = ({ text, srcLang, to }) => __awaiter(void 0, void 0
     const response = yield fetch(`https://api.mymemory.translated.net/get?q=${text}&langpair=${srcLang}|${to}`);
     const data = yield response.json();
     const translatedText = data.responseData.translatedText;
+    if (response.ok === false) {
+        return null;
+    }
     return translatedText;
 });

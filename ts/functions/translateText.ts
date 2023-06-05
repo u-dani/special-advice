@@ -12,5 +12,10 @@ export const translateText = async ({text, srcLang, to}: translateTextParameters
   
     const data = await response.json();
     const translatedText = data.responseData.translatedText;
+
+    if (response.ok === false) {
+      return null
+    }
+
     return translatedText;
 }

@@ -13,6 +13,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <style>
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 48
+        }
+    </style>
 </head>
 <body>
     
@@ -35,12 +47,34 @@
         <div class="c-modal-backdrop js-modal-backdrop"></div>
 
         <section class="c-modal c-modal--hide js-advice-modal">
-            <h2 class="c-subtitle title js-title">✨ Seu conselho ✨</h2>
-            <p class="c-description js-advice-paragraph">conselho aqui</p>
 
-            <div class="l-modal-button-container">
-                <button class="c-button js-new-advice-button">Novo Conselho</button>
-                <button class="c-button c-button--danger js-modal-close-button">Fechar</button>
+            <div class="l-modal-top-buttons-container">
+                <button class="c-button c-button--icon c-button--transparent">
+                    <label for="itranslate">
+                        <input type="checkbox" name="translate" id="itranslate" checked style="display: none;" class="js-checkbox-translate" />
+                        <abbr title="Mudar Idioma">
+                            <span class="material-symbols-outlined">
+                                language
+                            </span>
+                        </abbr>
+                    </label>
+                </button>
+                <button class="c-button c-button--icon c-button--danger js-modal-close-button">
+                    <span class="material-symbols-outlined">
+                        close
+                    </span>
+                </button>
+            </div>
+
+            <div class="c-modal__content">
+                <h2 class="c-subtitle title js-title">✨ Seu conselho ✨</h2>
+                <p class="c-description js-advice-paragraph">conselho aqui</p>
+    
+                <div class="l-modal-bottom-buttons-container">
+                    <button class="c-button c-button--rounded js-new-advice-button">
+                        Novo Conselho
+                    </button>
+                </div>
             </div>
         </section>
     </div>

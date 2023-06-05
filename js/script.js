@@ -16,18 +16,33 @@ const adviceParagraph = document.querySelector('.js-advice-paragraph');
 const modal = document.querySelector('.js-advice-modal');
 const modalBackdrop = document.querySelector('.js-modal-backdrop');
 const hiddenModalClass = 'c-modal--hide';
+const checkboxTranslateAdvice = document.querySelector('.js-checkbox-translate');
 const newAdviceButton = document.querySelector('.js-new-advice-button');
 const modalCloseButton = document.querySelector('.js-modal-close-button');
-const showAdvice = () => __awaiter(void 0, void 0, void 0, function* () {
+const adviceRequestInterval = () => {
+    newAdviceButton === null || newAdviceButton === void 0 ? void 0 : newAdviceButton.setAttribute('disabled', '');
+    newAdviceButton === null || newAdviceButton === void 0 ? void 0 : newAdviceButton.classList.add('transition-animation');
+    setTimeout(() => {
+        newAdviceButton === null || newAdviceButton === void 0 ? void 0 : newAdviceButton.removeAttribute('disabled');
+        newAdviceButton === null || newAdviceButton === void 0 ? void 0 : newAdviceButton.classList.remove('transition-animation');
+    }, 2000);
+};
+const newAdvice = () => __awaiter(void 0, void 0, void 0, function* () {
     const adviceInEnglish = yield requestAdvice();
+    return adviceInEnglish;
+});
+const showAdvice = (advice) => __awaiter(void 0, void 0, void 0, function* () {
+    if (!advice) {
+        advice = (adviceParagraph === null || adviceParagraph === void 0 ? void 0 : adviceParagraph.textContent) || 'Acabou os conselhos...';
+    }
     const adviceInPortuguese = yield translateText({
-        text: adviceInEnglish,
+        text: advice,
         srcLang: 'en-US',
         to: 'pt-BR'
     });
-    adviceParagraph
+    (checkboxTranslateAdvice === null || checkboxTranslateAdvice === void 0 ? void 0 : checkboxTranslateAdvice.checked) && adviceInPortuguese
         ? adviceParagraph.textContent = adviceInPortuguese
-        : alert(`Conselho: ${adviceInPortuguese}`);
+        : adviceParagraph.textContent = advice;
 });
 const toggleModal = () => {
     const modalIsHidden = modal === null || modal === void 0 ? void 0 : modal.className.includes(hiddenModalClass);
@@ -46,9 +61,19 @@ crystalBallButton === null || crystalBallButton === void 0 ? void 0 : crystalBal
         crystalBallImage.src = pathCrystalBallGif;
     }
     crystalBallButton.setAttribute('disabled', '');
-    yield showAdvice();
+    const advice = yield newAdvice();
+    showAdvice(advice);
     toggleModal();
+    adviceRequestInterval();
+}));
+checkboxTranslateAdvice === null || checkboxTranslateAdvice === void 0 ? void 0 : checkboxTranslateAdvice.addEventListener('click', (e) => __awaiter(void 0, void 0, void 0, function* () {
+    e.stopPropagation();
+    showAdvice();
 }));
 modalBackdrop === null || modalBackdrop === void 0 ? void 0 : modalBackdrop.addEventListener('click', toggleModal);
-newAdviceButton === null || newAdviceButton === void 0 ? void 0 : newAdviceButton.addEventListener('click', showAdvice);
 modalCloseButton === null || modalCloseButton === void 0 ? void 0 : modalCloseButton.addEventListener('click', toggleModal);
+newAdviceButton === null || newAdviceButton === void 0 ? void 0 : newAdviceButton.addEventListener('click', () => __awaiter(void 0, void 0, void 0, function* () {
+    const advice = yield newAdvice();
+    showAdvice(advice);
+    adviceRequestInterval();
+}));

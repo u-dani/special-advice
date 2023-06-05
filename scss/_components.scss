@@ -34,13 +34,8 @@
 .c-modal {
     max-width: $max-width-page;
     min-width: 480px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
+    width: 90vw;
     border-radius: 4px;
-    padding: 24px 32px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -55,14 +50,21 @@
     &--hide {
         top: -100%;
     }
+
+    &__content {
+        padding: 12px 32px 24px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+    }
 }
 
 .c-button {
-    border: 1px solid #3333;
-    padding: 8px 16px;
-    border-radius: 4px;
+    border: none;
+    padding: 10px 16px;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     background-color: darken(map-get($colors, 'crystal-ball'), 20);
     font-weight: 500;
     color: aliceblue;
@@ -76,6 +78,27 @@
 
         &:hover {
             background-color: darken(map-get($colors, 'danger'), 10);
+        }
+    }
+
+    &--transparent {
+        background: transparent;
+
+        &:hover {
+            background: transparent;
+        }
+    }
+
+    &--rounded {
+        border-radius: 4px;
+    }
+
+    &--icon {
+        padding: 6px 8px;
+
+        span {
+            display: block;
+            cursor: pointer;
         }
     }
 }

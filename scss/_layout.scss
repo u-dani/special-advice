@@ -29,7 +29,17 @@
     background: none;
 }
 
-.l-modal-button-container {
+.l-modal-top-buttons-container {
+    display: flex;
+    gap: 8px;
+    justify-content: end;
+
+    & > *:last-child {
+        border-top-right-radius: 4px;
+    }
+}
+
+.l-modal-bottom-buttons-container {
     display: flex;
     gap: 16px;
 }

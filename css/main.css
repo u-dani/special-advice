@@ -41,7 +41,16 @@ html, body {
   background: none;
 }
 
-.l-modal-button-container {
+.l-modal-top-buttons-container {
+  display: flex;
+  gap: 8px;
+  justify-content: end;
+}
+.l-modal-top-buttons-container > *:last-child {
+  border-top-right-radius: 4px;
+}
+
+.l-modal-bottom-buttons-container {
   display: flex;
   gap: 16px;
 }
@@ -79,13 +88,8 @@ html, body {
 .c-modal {
   max-width: 720px;
   min-width: 480px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
+  width: 90vw;
   border-radius: 4px;
-  padding: 24px 32px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -99,13 +103,19 @@ html, body {
 .c-modal--hide {
   top: -100%;
 }
+.c-modal__content {
+  padding: 12px 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
 
 .c-button {
-  border: 1px solid rgba(51, 51, 51, 0.2);
-  padding: 8px 16px;
-  border-radius: 4px;
+  border: none;
+  padding: 10px 16px;
   cursor: pointer;
-  font-size: 14px;
+  font-size: 16px;
   background-color: #0ca3e5;
   font-weight: 500;
   color: aliceblue;
@@ -118,6 +128,46 @@ html, body {
 }
 .c-button--danger:hover {
   background-color: #ff3814;
+}
+.c-button--transparent {
+  background: transparent;
+}
+.c-button--transparent:hover {
+  background: transparent;
+}
+.c-button--rounded {
+  border-radius: 4px;
+}
+.c-button--icon {
+  padding: 6px 8px;
+}
+.c-button--icon span {
+  display: block;
+  cursor: pointer;
+}
+
+.transition-animation {
+  position: relative;
+  transition: 2.1s;
+  overflow: hidden;
+}
+.transition-animation::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  animation: loading 2s ease;
+}
+
+@keyframes loading {
+  to {
+    left: 0;
+  }
+  from {
+    left: 100%;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
