@@ -16,7 +16,6 @@ const adviceParagraph = document.querySelector('.js-advice-paragraph');
 const modal = document.querySelector('.js-advice-modal');
 const modalBackdrop = document.querySelector('.js-modal-backdrop');
 const hiddenModalClass = 'c-modal--hide';
-const checkboxTranslateAdvice = document.querySelector('.js-checkbox-translate');
 const newAdviceButton = document.querySelector('.js-new-advice-button');
 const modalCloseButton = document.querySelector('.js-modal-close-button');
 const adviceRequestInterval = () => {
@@ -40,9 +39,9 @@ const showAdvice = (advice) => __awaiter(void 0, void 0, void 0, function* () {
         srcLang: 'en-US',
         to: 'pt-BR'
     });
-    (checkboxTranslateAdvice === null || checkboxTranslateAdvice === void 0 ? void 0 : checkboxTranslateAdvice.checked) && adviceInPortuguese
+    adviceInPortuguese
         ? adviceParagraph.textContent = adviceInPortuguese
-        : adviceParagraph.textContent = advice;
+        : adviceParagraph.textContent = 'Erro ao traduzir o conselho, por gentileza volte mais tarde :/';
 });
 const toggleModal = () => {
     const modalIsHidden = modal === null || modal === void 0 ? void 0 : modal.className.includes(hiddenModalClass);
@@ -62,13 +61,10 @@ crystalBallButton === null || crystalBallButton === void 0 ? void 0 : crystalBal
     }
     crystalBallButton.setAttribute('disabled', '');
     const advice = yield newAdvice();
+    console.log('advice ', advice);
     showAdvice(advice);
     toggleModal();
     adviceRequestInterval();
-}));
-checkboxTranslateAdvice === null || checkboxTranslateAdvice === void 0 ? void 0 : checkboxTranslateAdvice.addEventListener('click', (e) => __awaiter(void 0, void 0, void 0, function* () {
-    e.stopPropagation();
-    showAdvice();
 }));
 modalBackdrop === null || modalBackdrop === void 0 ? void 0 : modalBackdrop.addEventListener('click', toggleModal);
 modalCloseButton === null || modalCloseButton === void 0 ? void 0 : modalCloseButton.addEventListener('click', toggleModal);

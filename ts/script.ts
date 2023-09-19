@@ -10,7 +10,6 @@ const modal = document.querySelector('.js-advice-modal');
 const modalBackdrop = document.querySelector<HTMLDivElement>('.js-modal-backdrop');
 const hiddenModalClass = 'c-modal--hide';
 
-const checkboxTranslateAdvice = document.querySelector<HTMLInputElement>('.js-checkbox-translate')
 const newAdviceButton = document.querySelector('.js-new-advice-button');
 const modalCloseButton = document.querySelector('.js-modal-close-button');
 
@@ -43,9 +42,9 @@ const showAdvice = async (advice?: string) => {
     });
 
     
-    checkboxTranslateAdvice?.checked && adviceInPortuguese
+    adviceInPortuguese
         ? adviceParagraph!.textContent = adviceInPortuguese
-        : adviceParagraph!.textContent = advice
+        : adviceParagraph!.textContent = 'Erro ao traduzir o conselho, por gentileza volte mais tarde :/'
 
 }
 
@@ -72,15 +71,10 @@ crystalBallButton?.addEventListener('click', async ({ target }) => {
 
     crystalBallButton.setAttribute('disabled', '');
     const advice = await newAdvice()
+    console.log('advice ', advice)
     showAdvice(advice)
     toggleModal();
     adviceRequestInterval();
-});
-
-
-checkboxTranslateAdvice?.addEventListener('click', async(e) => { 
-    e.stopPropagation()
-    showAdvice()
 });
 
 modalBackdrop?.addEventListener('click', toggleModal);
