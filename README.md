@@ -1,6 +1,6 @@
 # Special Advice
 
-É um site simples, você clica na Bola de Cristal e ela te dá um conselho. o conselho vem da api [AdviceSlip](https://api.adviceslip.com/) na lingua inglesa e eu traduzi usando a [MyMemory](https://mymemory.translated.net/), uma api de tradução.
+É um site simples, você clica na Bola de Cristal e ela te dá um conselho. o conselho vem da API [AdviceSlip](https://api.adviceslip.com/) na lingua inglesa e eu traduzi usando a API [MyMemory](https://mymemory.translated.net/).
 
 ## 🌠 Demo
 
